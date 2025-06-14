@@ -69,7 +69,7 @@ function CollectionPoints() {
 				...newPoint,
 				lat: parseFloat(newPoint.lat),
 				lng: parseFloat(newPoint.lng),
-				status: "normal", // Status inicial sempre normal
+				status: "NORMAL",
 			});
 			handleClose();
 			loadPoints();
@@ -80,7 +80,6 @@ function CollectionPoints() {
 	};
 
 	const handleMaintenance = (pointId) => {
-		// Redirecionar para a página de manutenção
 		window.location.href = `/maintenance/${pointId}`;
 	};
 
@@ -122,7 +121,7 @@ function CollectionPoints() {
 									<Box
 										sx={{
 											backgroundColor:
-												point.status === "cheio" ? "#d32f2f" : point.status === "normal" ? "#1976d2" : "#2e7d32",
+												point.status === "CHEIO" ? "#d32f2f" : point.status === "NORMAL" ? "#1976d2" : "#2e7d32",
 											color: "white",
 											px: 1,
 											py: 0.5,

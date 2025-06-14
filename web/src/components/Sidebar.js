@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography, Box } from "@mui/material";
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Box } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AssessmentIcon from "@mui/icons-material/Assessment";
+import Logo from "../assets/Logo.png";
 
 const drawerWidth = 240;
 
@@ -35,10 +36,8 @@ function Sidebar() {
 				},
 			}}
 		>
-			<Box sx={{ p: 2 }}>
-				<Typography variant="h6" component="div" sx={{ fontWeight: "bold" }}>
-					Gestão de Resíduos
-				</Typography>
+			<Box sx={{ p: 2, display: "flex", justifyContent: "center" }}>
+				<img src={Logo} alt="Coleta+" style={{ maxWidth: 180, width: "100%" }} />
 			</Box>
 			<List>
 				{menuItems.map((item) => (

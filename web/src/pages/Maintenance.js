@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
 	Box,
@@ -24,16 +24,12 @@ function Maintenance() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [maintenance, setMaintenance] = useState({
-		status: "normal",
+		status: "NORMAL",
 		lastMaintenance: new Date().toISOString().split("T")[0],
 		notes: "",
 	});
 
-	useEffect(() => {
-		loadPoint();
-	}, [id]);
-
-	const loadPoint = async () => {
+	const loadPoint = useCallback(async () => {
 		try {
 			const data = await collectionPointsService.getOne(id);
 			setPoint(data);
@@ -48,7 +44,11 @@ function Maintenance() {
 		} finally {
 			setLoading(false);
 		}
-	};
+	}, [id]);
+
+	useEffect(() => {
+		loadPoint();
+	}, [loadPoint]);
 
 	const handleSubmit = async () => {
 		try {
@@ -129,9 +129,9 @@ function Maintenance() {
 								label="Status"
 								onChange={(e) => setMaintenance({ ...maintenance, status: e.target.value })}
 							>
-								<MenuItem value="cheio">Cheio</MenuItem>
-								<MenuItem value="normal">Normal</MenuItem>
-								<MenuItem value="vazio">Vazio</MenuItem>
+								<MenuItem value="CHEIO">Cheio</MenuItem>
+								<MenuItem value="NORMAL">Normal</MenuItem>
+								<MenuItem value="VAZIO">Vazio</MenuItem>
 							</Select>
 						</FormControl>
 					</Grid>

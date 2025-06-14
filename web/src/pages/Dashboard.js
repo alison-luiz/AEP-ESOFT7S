@@ -43,11 +43,11 @@ function Dashboard() {
 
 	const getStatusColor = (status) => {
 		switch (status) {
-			case "cheio":
+			case "CHEIO":
 				return "#d32f2f";
-			case "normal":
+			case "NORMAL":
 				return "#1976d2";
-			case "vazio":
+			case "VAZIO":
 				return "#2e7d32";
 			default:
 				return "#757575";
@@ -89,7 +89,7 @@ function Dashboard() {
 									<DeleteIcon sx={{ color: "#d32f2f", mr: 1 }} />
 									<Typography variant="h6">Pontos Cheios</Typography>
 								</Box>
-								<Typography variant="h4">{getStatusCount("cheio")}</Typography>
+								<Typography variant="h4">{getStatusCount("CHEIO")}</Typography>
 							</CardContent>
 						</Card>
 					</Grid>
@@ -100,7 +100,7 @@ function Dashboard() {
 									<WarningIcon sx={{ color: "#1976d2", mr: 1 }} />
 									<Typography variant="h6">Pontos Normais</Typography>
 								</Box>
-								<Typography variant="h4">{getStatusCount("normal")}</Typography>
+								<Typography variant="h4">{getStatusCount("NORMAL")}</Typography>
 							</CardContent>
 						</Card>
 					</Grid>
@@ -111,7 +111,7 @@ function Dashboard() {
 									<CheckCircleIcon sx={{ color: "#2e7d32", mr: 1 }} />
 									<Typography variant="h6">Pontos Vazios</Typography>
 								</Box>
-								<Typography variant="h4">{getStatusCount("vazio")}</Typography>
+								<Typography variant="h4">{getStatusCount("VAZIO")}</Typography>
 							</CardContent>
 						</Card>
 					</Grid>
@@ -120,11 +120,7 @@ function Dashboard() {
 
 			<Box sx={{ flexGrow: 1, minHeight: 0, display: "flex", flexDirection: "column" }}>
 				<Paper sx={{ p: 2, flexGrow: 1, minHeight: 0, display: "flex", flexDirection: "column" }}>
-					<MapContainer
-						center={[-23.6033, -52.0806]}
-						zoom={14}
-						style={{ flexGrow: 1, minHeight: 0, height: "50%", width: "100%" }}
-					>
+					<MapContainer center={[-23.6033, -52.0806]} zoom={14} style={{ flexGrow: 1, width: "100%", height: "100%" }}>
 						<TileLayer
 							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -147,6 +143,10 @@ function Dashboard() {
 								<Popup>
 									<Typography variant="subtitle2">{point.address}</Typography>
 									<Typography variant="body2">Status: {point.status}</Typography>
+									<Typography variant="body2">
+										Lat: {point.lat} <br />
+										Lng: {point.lng}
+									</Typography>
 								</Popup>
 							</Marker>
 						))}
