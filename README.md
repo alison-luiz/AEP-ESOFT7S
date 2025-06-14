@@ -1,20 +1,20 @@
 # Sistema de Gestão de Resíduos Urbanos
 
-Este projeto é um sistema para monitorar os pontos de coleta de lixo na cidade, permitindo que os usuários visualizem quais pontos estão cheios e precisam de coleta. O sistema ajuda a melhorar a eficiência das rotas dos caminhões de coleta, garantindo que a cidade seja atendida de maneira mais organizada e ágil.
+Este projeto é uma solução completa para monitoramento e gestão de pontos de coleta de lixo em cidades, permitindo visualização em mapa, cadastro, manutenção, relatórios avançados e histórico de manutenções. O sistema foi desenvolvido para facilitar a tomada de decisão e otimizar rotas de coleta, usando como exemplo a cidade de Floresta-PR.
 
 ## Tecnologias Utilizadas
 
 ### Frontend
 
 - React
-- Material-UI
-- Leaflet (mapas)
-- Recharts (gráficos)
-- Axios
+- Material-UI (interface moderna)
+- Leaflet (mapas interativos)
+- Recharts (gráficos avançados)
+- Axios (requisições HTTP)
 
 ### Backend
 
-- NestJS
+- NestJS (API robusta)
 - TypeScript
 
 ## Estrutura do Projeto
@@ -67,11 +67,14 @@ A aplicação estará disponível em `http://localhost:3000`
 
 ## Funcionalidades
 
-- Visualização de pontos de coleta em um mapa
-- Cadastro de novos pontos de coleta
-- Atualização do status dos pontos
-- Relatórios e estatísticas
-- Dashboard com visão geral do sistema
+- **Dashboard moderno:** visão geral dos pontos, cards de status e mapa imersivo
+- **Mapa interativo:** pontos de coleta exibidos com ícones coloridos por status (cheio, normal, vazio)
+- **Cadastro de pontos:** adicione novos pontos com endereço, latitude e longitude
+- **Manutenção de pontos:** registre manutenções, altere status, adicione observações e veja o histórico completo
+- **Relatórios avançados:** gráficos de barras, pizza, linha e barras horizontais para análise de status, evolução e manutenções
+- **Histórico de manutenções:** cada ponto armazena todas as manutenções realizadas
+- **Padronização de status:** todos os status são em maiúsculo (`CHEIO`, `NORMAL`, `VAZIO`)
+- **Exemplo real:** pontos e coordenadas reais de Floresta-PR
 
 ## API Endpoints
 
